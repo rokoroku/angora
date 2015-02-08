@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 8b716eec72ede49f68761d2fe1cb5e5a
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - m_food: {fileID: 142270, guid: 55689ea7f231f4cbaabc0f0a6c285764, type: 2}
+  - m_playGround: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

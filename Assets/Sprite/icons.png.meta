@@ -1,0 +1,235 @@
+fileFormatVersion: 2
+guid: 6317a6ffde28c4c0a91ebf457c5edd83
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: icons_hairball
+    21300002: icons_carrot
+    21300004: icons_scissor
+    21300006: icons_10
+    21300008: icons_stamina
+    21300010: icons_coin
+    21300012: bg_top_menu
+    21300014: icons_17
+    21300016: icons_btn1
+    21300018: icons_btn2
+    21300020: icons_btn3
+    21300022: icons_btn4
+    21300024: icons_stamina
+    21300026: icons_13
+    21300028: icons_15
+    21300030: icons_16
+    21300032: icons_13
+    21300034: icons_gold_carrot
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: icons_hairball
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 2285
+        width: 240
+        height: 215
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_carrot
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 2278
+        width: 221
+        height: 224
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_scissor
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 2268
+        width: 263
+        height: 220
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_10
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 1897
+        width: 233
+        height: 243
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_13
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 1894
+        width: 228
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_15
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1618
+        width: 188
+        height: 220
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_16
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 1609
+        width: 193
+        height: 213
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_17
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1639
+        width: 283
+        height: 143
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_btn1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1333
+        width: 253
+        height: 216
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_btn2
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1333
+        width: 256
+        height: 213
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_btn3
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 1333
+        width: 254
+        height: 213
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_btn4
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 1333
+        width: 253
+        height: 213
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_13
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1895
+        width: 258
+        height: 226
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_stamina
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1031
+        width: 221
+        height: 211
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_gold_carrot
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1041
+        width: 216
+        height: 206
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: icons_coin
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 1026
+        width: 204
+        height: 201
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bg_top_menu
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 769
+        width: 1018
+        height: 199
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

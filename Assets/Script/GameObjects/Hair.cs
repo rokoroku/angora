@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Hair : BaseItem {
 	
-    private GameObject m_object;
+    private GameObject m_hairball;
     private GameObject m_ground;
     
     private float m_timeToDisappear;
@@ -25,41 +25,40 @@ public class Hair : BaseItem {
 	
 	// Use this for initialization
 	void Start () {
-
-        m_object = GameObject.Find("Object") as GameObject;
-        m_ground = GameObject.Find("Ground") as GameObject;
+        m_hairball = transform.Find("Hairball").gameObject;
+        m_ground = transform.Find("Ground").gameObject;
         
         Rect boundary = Boundary;
-        m_object.rigidbody2D.AddForce(new Vector2(boundary.width * Random.Range (-20f, 20f), boundary.height * Random.Range (30f, 50f)), ForceMode2D.Force);
-		m_object.rigidbody2D.gravityScale = GameManager.instance.GetDensityFactor();
+        m_hairball.rigidbody2D.AddForce(new Vector2(boundary.width * Random.Range (-20f, 20f), boundary.height * Random.Range (30f, 50f)), ForceMode2D.Force);
+		m_hairball.rigidbody2D.gravityScale = GameManager.instance.GetDensityFactor();
 		
 		Vector3 groundPosition = m_ground.transform.localPosition;
 		groundPosition.y -= Random.Range(boundary.height/5, boundary.height);
 		m_ground.transform.localPosition = groundPosition;
 
-		m_timeToDisappear = Time.time + 3.5f;
-		m_timeToStopBouncing = Time.time + 2f;
-		
-        ImageUtil.ChangeAlpha(m_object, 0);
-        ImageUtil.ChangeSprite(m_object, Sprite);
+		m_timeToDisappear = Time.time + 5f;
+		m_timeToStopBouncing = Time.time + 2.5f;
+
+        ImageUtil.ChangeAlpha(m_hairball, 0);
+        ImageUtil.ChangeSprite(m_hairball, Sprite);    
 	}
-	
+    
 	// Update is called once per frame
 	void Update () {
-		if(Time.time > m_timeToDisappear) {
-			Collect();
-		} else {
+        if(Time.time > m_timeToDisappear) {
+            Collect();
+        } else {
             if(!isVisible) {
                 InterpolateAlpha();
-            }
+            } 
             if(isCollidable && Time.time > m_timeToStopBouncing) {
-				RemoveRigidBody();
-			}
-		}		
+    			RemoveRigidBody();
+    		}
+        }
 	}
 	
 	void InterpolateAlpha() {
-		Image image = m_object.GetComponent (typeof(Image)) as Image;
+		Image image = m_hairball.GetComponent (typeof(Image)) as Image;
 		Color color = image.color;
 		
 		color.a += (1 - color.a) * Time.deltaTime * 10;
@@ -68,29 +67,31 @@ public class Hair : BaseItem {
 	}
 	
 	void RemoveRigidBody() {
-		GameObject.Destroy (m_object.rigidbody2D);
+		GameObject.Destroy (m_hairball.rigidbody2D);
 		GameObject.Destroy (m_ground.rigidbody2D);
-		GameObject.Destroy (m_object.collider2D);
+		GameObject.Destroy (m_hairball.collider2D);
 		GameObject.Destroy (m_ground.collider2D);
 	}
 	
 	private void Collect() {
 
-		Vector3 currentPosition = transform.position;
+        Vector3 currentPosition = transform.position;
 		GameObject button3 = GameObject.Find("Button2") as GameObject;
 		Vector3 nextPosition = button3.transform.position;
 
-		currentPosition += (nextPosition - currentPosition) * (Time.deltaTime * 2);
-		transform.position = currentPosition;	
+        currentPosition += (nextPosition - currentPosition) * (Time.deltaTime * 2);
+        transform.position = currentPosition;	
 
-		Image image = m_object.GetComponent (typeof(Image)) as Image;
-		Color color = image.color;
-
-		color.a += (0 - color.a) * Time.deltaTime * 2;
-		image.color = color;
-		
-		if((currentPosition - nextPosition).magnitude < 10) {
-			Destroy(gameObject);
+		Image image = m_hairball.GetComponent (typeof(Image)) as Image;
+        if(image != null) {
+    		Color color = image.color;
+    		color.a += (0 - color.a) * Time.deltaTime * 2;
+    		image.color = color;		
+        } 
+        
+        if(image.color.a < 0.1f) {
+            Inventory.instance.AddItem(this);
+            Destroy(gameObject);
 		}
 	}
 	

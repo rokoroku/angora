@@ -10,7 +10,6 @@ public class ImageUtil
         if (image != null)
         {
             image.overrideSprite = sprite;
-            Debug.Log("overrided sprite");
         }
     }
     
@@ -22,7 +21,6 @@ public class ImageUtil
             Color color = image.color;
             color.a = alpha;
             image.color = color;    
-            Debug.Log("alpha setted to " + alpha);
         }
     }
     

@@ -17,13 +17,23 @@ public class SingletonGameObject<T> : MonoBehaviour where T : MonoBehaviour {
 				}
 			}
 			
-			container = GameObject.FindObjectOfType(typeof(T)) as GameObject;
-				if(container == null) {
+			container = FindObjectOfType(typeof(T)) as GameObject;
+            if(container == null) try {
+                container = GameObject.Find(typeof(T).Name);
+            } catch (Exception ignored) { }
+            if(container == null) try {
+                container = GameObject.Find("Canvas").GetComponentsInChildren<T>(true)[0].gameObject;
+            } catch (Exception ignored) { }
+            if(container == null) {
 				container = new GameObject();
 				container.name = "_" + typeof(T).Name;
 			}
-			T instance = container.AddComponent(typeof(T)) as T;
-			
+
+			T instance = container.GetComponent<T>();
+
+            if(instance == null) { 
+                instance = container.AddComponent(typeof(T)) as T;
+			}
 			_container = new WeakReference( container, false );
 			_instance = new WeakReference( instance, false );
 			

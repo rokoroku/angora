@@ -1,0 +1,102 @@
+fileFormatVersion: 2
+guid: dcb368fb9645c4d26bd016d2a16acece
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: rabbit_tier_2_head
+    21300002: rabbit_tier_2_body
+    21300004: rabbit_tier_2_ear_left
+    21300006: rabbit_tier_2_ear_right
+    21300008: rabbit_tier_2_body_jump
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: rabbit_tier_2_head
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 226
+        width: 122
+        height: 116
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit_tier_2_body
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 61
+        width: 176
+        height: 123
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit_tier_2_ear_left
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 284
+        width: 49
+        height: 70
+      alignment: 9
+      pivot: {x: .237900466, y: .0438786112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit_tier_2_ear_right
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 276
+        width: 74
+        height: 64
+      alignment: 9
+      pivot: {x: .144040078, y: .113366127}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit_tier_2_body_jump
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 56
+        width: 172
+        height: 133
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: rabbit
+  userData: 

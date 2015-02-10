@@ -95,5 +95,7 @@ public class GameManager : SingletonGameObject<GameManager> {
 		return GetPlayGroundBound().width/10;
 	}
 	
-	
+	public void ToggleInventory() {
+        Inventory.instance.ToggleInventory();
+    }
 }

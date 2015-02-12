@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: d2c4d1ff5f89b443db406bcc3401c8bd
+guid: d6a232d86192649178d738664f2ebad1
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ui_tailor_title
-    21300002: ui_tailor_slot_1
-    21300004: ui_tailor_slot_2
-    21300006: ui_tailor_header
-    21300008: ui_tailor_bg
+    21300000: title_bg
+    21300002: title_logo
+    21300004: title_shadow
+    21300006: title_3
+    21300008: title_rabbit
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,7 +26,7 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
@@ -48,53 +48,53 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: ui_tailor_title
-      rect:
-        serializedVersion: 2
-        x: 206
-        y: 1004
-        width: 654
-        height: 222
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ui_tailor_slot_1
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 503
-        width: 1000
-        height: 397
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ui_tailor_slot_2
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 58
-        width: 320
-        height: 310
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ui_tailor_header
+    - name: title_bg
       rect:
         serializedVersion: 2
         x: 0
-        y: 1350
+        y: 0
         width: 1080
-        height: 570
+        height: 1920
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ui_tailor_bg
+    - name: title_logo
       rect:
         serializedVersion: 2
-        x: 1126
-        y: 0
-        width: 200
-        height: 1600
+        x: 1106
+        y: 1282
+        width: 1028
+        height: 489
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: title_shadow
+      rect:
+        serializedVersion: 2
+        x: 1733
+        y: 974
+        width: 306
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: title_3
+      rect:
+        serializedVersion: 2
+        x: 1579
+        y: 955
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: title_rabbit
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 834
+        width: 441
+        height: 374
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

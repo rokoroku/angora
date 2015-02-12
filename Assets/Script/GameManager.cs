@@ -50,7 +50,7 @@ public class GameManager : SingletonGameObject<GameManager> {
 	public void GenerateFood() {
 		Vector3 position = new Vector3( Random.Range(m_playgroundBound.x, m_playgroundBound.width), Random.Range(m_playgroundBound.y, m_playgroundBound.height));
 		
-	    GameObject food = Instantiate(Resources.Load("Carrot")) as GameObject;
+	    GameObject food = Instantiate(Resources.Load("Prefab/Carrot")) as GameObject;
 		food.transform.SetParent(m_playGround.transform, false);
 		food.transform.position = position;
 		
@@ -95,7 +95,19 @@ public class GameManager : SingletonGameObject<GameManager> {
 		return GetPlayGroundBound().width/10;
 	}
 	
-	public void ToggleInventory() {
+	public void OnInventoryButtonClick() {
         Inventory.instance.ToggleInventory();
+    }
+    
+    public void OnTrainingButtonClick() {
+        var dialog = new ConfirmDialog.Builder().setTitle("Training").setContent("Not implemented yet.").Build() as ConfirmDialog;        
+    }
+    
+    public void OnTailoringButtonClick() {
+        Tailoring.instance.ToggleTailoring();
+    }
+    
+    public void OnQuestButtonClick() {
+        var dialog = new ConfirmDialog.Builder().setTitle("Quest").setContent("Not implemented yet.").Build() as ConfirmDialog;        
     }
 }

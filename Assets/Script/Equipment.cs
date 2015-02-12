@@ -5,7 +5,7 @@ public class Equipment : Singleton<Equipment>
 {
 	private IEquippable mEquippedTool;
 	private IEquippable mEquippedAccessory;
-	private Inventory.InventoryItem mItemShortcut;
+	private InventorySlot mItemShortcut;
 
 	IEquippable EquippedTool
 	{
@@ -31,7 +31,7 @@ public class Equipment : Singleton<Equipment>
 		}
 	}
 
-	Inventory.InventoryItem EquippedItem
+    InventorySlot EquippedItem
 	{
 		get
 		{

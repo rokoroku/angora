@@ -4,31 +4,45 @@ using System.Collections;
 
 public abstract class BaseItem : CacheableObject
 {
-    [SerializeField] private int m_id;
-	[SerializeField] private int m_tier;
+    [SerializeField] private string m_id;
+    [SerializeField] private int m_tier;
     [SerializeField] private string m_name;
     [SerializeField] private string m_description;
     [SerializeField] private int m_price;
     [SerializeField] private Sprite m_sprite;
     
-    public int Id {
-		get {
-			return this.m_id;
-		}
-		set {
-			m_id = value;
-		}
-	}
-	
-    public int Tier {
-        get {
-            return this.m_tier;
-        }
-        set {
-            m_tier = value;
+    public Item Item
+    {
+        get
+        {
+            return new Item(m_id, m_tier, m_name, m_description, m_price, m_sprite.name);
         }
     }
     
+    public string Id
+    {
+        get
+        {
+            return this.m_id;
+        }
+        set
+        {
+            m_id = value;
+        }
+    }
+
+    public int Tier
+    {
+        get
+        {
+            return this.m_tier;
+        }
+        set
+        {
+            m_tier = value;
+        }
+    }
+
     public string Name
     {
         get
@@ -41,7 +55,7 @@ public abstract class BaseItem : CacheableObject
         }
     }
 
-	public string Description
+    public string Description
     {
         get
         {
@@ -52,17 +66,20 @@ public abstract class BaseItem : CacheableObject
             m_description = value;
         }
     }
-    
-    public int Price {
-        get {
+
+    public int Price
+    {
+        get
+        {
             return this.m_price;
         }
-        set {
+        set
+        {
             m_price = value;
         }
-    } 
-    
-	public Sprite Sprite
+    }
+
+    public Sprite Sprite
     {
         get
         {
@@ -72,5 +89,6 @@ public abstract class BaseItem : CacheableObject
         {
             m_sprite = value;
         }
-    }        
+    }
+
 }

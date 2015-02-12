@@ -4,6 +4,9 @@ using System.Collections;
 
 public class Hair : BaseItem {
 	
+    [SerializeField] private float m_weight;
+    [SerializeField] private float m_probability;
+    
     private GameObject m_hairball;
     private GameObject m_ground;
     
@@ -12,7 +15,25 @@ public class Hair : BaseItem {
 	
 	private bool isVisible = false;
 	private bool isCollidable = true;
-	
+
+    public float Weight {
+        get {
+            return this.m_weight;
+        }
+        set {
+            m_weight = value;
+        }
+    }
+
+    public float Probability {
+        get {
+            return this.m_probability;
+        }
+        set {
+            m_probability = value;
+        }
+    }
+        	
 	private Rect Boundary {
 		get {
 			Vector3[] corners = new Vector3[4];
@@ -90,7 +111,7 @@ public class Hair : BaseItem {
         } 
         
         if(image.color.a < 0.1f) {
-            Inventory.instance.AddItem(this);
+            Inventory.instance.AddItem(this.Item);
             Destroy(gameObject);
 		}
 	}

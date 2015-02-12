@@ -25,4 +25,5 @@ sysinfo.txt
 
 # Built APK file
 *.apk
+*.zip
 

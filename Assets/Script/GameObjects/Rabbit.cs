@@ -185,25 +185,21 @@ public class Rabbit : CacheableObject
             
 		} else {
             m_weight -= 0.1f;
-        }
-        
-        int newTier = (int)(m_weight/30);
-        if(newTier != m_tier) {
-            m_tier = newTier;
-            ApplyAppearance(m_tier);
-        }
+        }        
 	}
 	
 	public void GenerateHair()
 	{
         GameObject hair = null;
-        if(m_tier > 0) if(Random.Range(0, 3)<2) hair = Instantiate(Resources.Load("Good Hair")) as GameObject;
-        if(hair == null) hair = Instantiate(Resources.Load("Hair")) as GameObject;
-        
-		hair.transform.SetParent(GameManager.instance.getForeGround().transform, false);
+        if(m_tier > 0) if(Random.Range(0, 3)<2) hair = Instantiate(Resources.Load("Prefab/Good Hair")) as GameObject;
+        if(hair == null) hair = Instantiate(Resources.Load("Prefab/Hair")) as GameObject;
+               
+        hair.transform.SetParent(GameManager.instance.getForeGround().transform, false);
 		Vector3 position = transform.position;
 		hair.transform.position = position;
-		
+
+        this.m_weight -= hair.GetComponent<Hair>().Weight;
+        
 	}
 		
 	private void EatFood(Food food)
@@ -299,7 +295,13 @@ public class Rabbit : CacheableObject
         float sizeDelta = (m_weight - (30 * m_tier)) / 5;
         if (sizeDelta > 6) sizeDelta = 6;
 
-        (transform as RectTransform).sizeDelta = defaultRabbitSize + new Vector2(m_tier, m_tier);
+        int newTier = (int)(m_weight/30);
+        if(newTier != m_tier) {
+            m_tier = newTier;
+            ApplyAppearance(m_tier);
+        }
+        
+        (transform as RectTransform).sizeDelta = defaultRabbitSize + new Vector2(m_tier*2, m_tier*2);
         (GameObject.Find("Body").transform as RectTransform).sizeDelta = defaultBodySize + new Vector2(sizeDelta, sizeDelta);
 	}
     

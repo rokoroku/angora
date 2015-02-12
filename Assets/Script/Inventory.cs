@@ -3,86 +3,116 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Inventory : SingletonGameObject<Inventory>
-{
-    
-    private readonly Dictionary<int, InventoryItem> m_itemTable = new Dictionary<int, InventoryItem>();
+{    
     private bool isActive = false;
+    private InventorySlot[] m_slots;
     
-    public InventorySlot[] Slots {
-        get {
-            return gameObject.GetComponentsInChildren<InventorySlot>(true);
-        }
-    }
-    
-    public void AddItem(BaseItem item, int quantity = 1)
+    public InventorySlot[] Slots
     {
-        if (m_itemTable.ContainsKey(item.Id))
+        get
         {
-            InventoryItem inventoryItem = GetInventoryItem(item.Id);
-            inventoryItem.quantity += quantity;
-            Debug.Log("Added " + quantity + " " + item.Name + "! (total " + inventoryItem.quantity + ")");
-        } else
-        {
-            m_itemTable.Add(item.Id, new InventoryItem(item, quantity));
-            Debug.Log("Added " + quantity + " " + item.Name + "! (total " + 1 + ")");
-        }
-    }
-    
-    public void RemoveItem(BaseItem item, int quantity = 1)
-    {
-        if (m_itemTable.ContainsKey(item.Id))
-        {
-            InventoryItem inventoryItem = GetInventoryItem(item.Id);
-            inventoryItem.quantity -= quantity;
-            if (inventoryItem.quantity <= 0)
-            {
-                m_itemTable.Remove(item.Id);
+            if (m_slots == null) {
+                m_slots = gameObject.GetComponentsInChildren<InventorySlot>(true);
             }
-        } else
-        {
-            m_itemTable.Add(item.Id, new InventoryItem(item, quantity));
+            return m_slots;
         }
+    }
+ 
+    public InventorySlot[] FindSlotsById(string id)
+    {
+        List<InventorySlot> list = new List<InventorySlot>();
+        foreach (InventorySlot slot in Slots)
+        {
+            if (id.Equals(slot.Item.Id))
+                list.Add(slot);
+        }
+        return list.ToArray();
+    }
+    
+    public InventorySlot FindSlotById(string id)
+    {
+        InventorySlot inventorySlot = null;
+        foreach (InventorySlot slot in Slots)
+        {
+            if (slot.Item != null && id.Equals(slot.Item.Id)) {
+                inventorySlot = slot;            
+            }
+        }
+        return inventorySlot;        
+    }
+    
+    public InventorySlot FindNextEmptySlot()
+    {
+        foreach (InventorySlot slot in Slots)
+        {
+            if (slot.Quantity == 0)
+            {
+                return slot;
+            }
+        }
+        return null;        
+    }
+
+    public bool AddItem(Item item, int quantity = 1)
+    {
+        InventorySlot inventorySlot = FindSlotById(item.Id);
+        if (inventorySlot != null)
+        {
+            Debug.Log("Find matching slot" + inventorySlot);
+            inventorySlot.Quantity = inventorySlot.Quantity + quantity;
+            return true;
+        } 
+        else
+        {
+            inventorySlot = FindNextEmptySlot();
+            Debug.Log("No matching slot, use empty slot " + inventorySlot.ToString());
+            if(inventorySlot != null) {
+                inventorySlot.Item = new Item(item);
+                inventorySlot.Quantity = quantity;
+                Debug.Log("Item added. " );
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+    
+    public bool RemoveItem(Item item, int quantity = 1)
+    {
+        InventorySlot inventorySlot = FindSlotById(item.Id);
+        if (inventorySlot != null)
+        {
+            int newQuantity = inventorySlot.Quantity - quantity;
+            if(newQuantity <= 0) {
+                inventorySlot.Item = null;
+                inventorySlot.Quantity = 0;
+            } else {
+                inventorySlot.Quantity = newQuantity;
+            }
+            return true;
+        } 
+        return false;
     }
         
-    public InventoryItem GetInventoryItem(int id)
-    {
-        InventoryItem result;
-        if (m_itemTable.TryGetValue(id, out result))
-        {
-            return result;
-        }
-        return null;
-    }
-
-    public ICollection<InventoryItem> GetInventoryItems()
-    {
-        return m_itemTable.Values;
-    }
-
     public void ToggleInventory()
     {
         if (!isActive)
         {
             gameObject.SetActive(true);
             isActive = true;
-        } 
-        else
+            
+            Tailoring.instance.Close();
+        } else
         {
             gameObject.SetActive(false);
             isActive = false;
         }
     }
-        
-    public class InventoryItem
-    {
-        public BaseItem item;
-        public int quantity;
-        
-        public InventoryItem(BaseItem item, int quantity = 1)
-        {
-            this.item = item;
-            this.quantity = quantity;
-        }
-    };    
+    
+    public void Close() {
+        gameObject.SetActive(false);
+        isActive = false;
+    }        
+
 
 }
